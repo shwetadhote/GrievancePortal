@@ -1,0 +1,27 @@
+body{
+  background: #76a520;
+  box-sizing: border-box;
+
+}
+.nav{
+    background: darkolivegreen;
+}
+.navbar {
+  list-style-type: none;
+  margin: 10px;
+}
+.nav_link {
+  text-decoration: none;
+  padding: 18px;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+}
+.nav_link:hover {
+  color: #f1bc0b;
+  font-weight: 600;
+}
+.buttons {
+  justify-content: space-between;
+  float: right;
+}
