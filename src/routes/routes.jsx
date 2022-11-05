@@ -2,6 +2,7 @@ import React from 'react'
 import About from '../pages/about'
 import Login from '../pages/Auth/login';
 import Contact from '../pages/contact';
+import FaQ from '../pages/faq';
 import Home from '../pages/home';
 
 const Routes = [
@@ -20,6 +21,10 @@ const Routes = [
     {
         path: "/login",
         element: <Login/>
+    },
+    {
+        path: "/faQ",
+        element: <FaQ/>
     },
 ]
 
