@@ -1,25 +1,19 @@
-body{
-  background: #76a520;
-  box-sizing: border-box;
-
-}
 .nav{
-    background: darkolivegreen;
+    background: darkred;
 }
 .navbar {
   list-style-type: none;
   margin: 10px;
 }
-.nav_link {
+.navlinks {
+  margin-right: 30px;
   text-decoration: none;
-  padding: 18px;
-  color: white;
+  color: white !important;
   font-size: 15px;
   font-weight: 600;
 }
-.nav_link:hover {
-  color: #f1bc0b;
-  font-weight: 600;
+.navlinks:hover {
+  color: #f1bc0b !important;
 }
 .buttons {
   justify-content: space-between;

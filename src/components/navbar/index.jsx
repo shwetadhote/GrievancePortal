@@ -1,65 +1,98 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Container, Navbar, Nav, Button } from "react-bootstrap";
+import React, { useState } from "react";
 import styles from "./styles.module.css";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaWhatsapp,
+  FaYoutube,
+} from "react-icons/fa";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  Nav,
+  NavItem,
+  NavbarBrand,
+  NavbarText,
+  NavLink,
+  Container,
+  List,
+  ListInlineItem,
+  CardLink,
+  Card,
+  Button,
+  // Dropdown
+} from "reactstrap";
 import logo from "../../assets/Images/logo.png";
 
-const PaginationNavbar = () => {
+const PaginationNavbar = (args) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
+
   return (
     <>
       <Navbar>
         <Container>
-          <Navbar.Brand href="#home" className="mx-5">
-            <img alt="" src={logo} width="80" height="100" />{" "}
-            <Navbar.Text className="mx-3 fw-bold">
+          <NavbarBrand href="#home" className="mx-5">
+            <img alt="" src={logo} width="70" height="90" />{" "}
+            <NavbarText className="mx-3 text-danger fw-bold">
               Public Grievance Portal
-            </Navbar.Text>
-          </Navbar.Brand>
+            </NavbarText>
+          </NavbarBrand>
         </Container>
       </Navbar>
       {/* eslint-disable-next-line jsx-a11y/no-distracting-elements */}
-      <marquee width="100%" direction="right">
+      <marquee width="100%" className="text-danger" direction="right">
         For any query or information call us at 1800 - **** - **** to our
         customer helpline number.{" "}
       </marquee>
-      <Navbar expand="lg" className={styles.nav}>
-        <Container>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <nav>
-                <ul className={`d-flex ${styles.navbar}`}>
-                  <li className={styles.nav_li}>
-                    <Link className={styles.nav_link} to="/">
-                      Home
-                    </Link>
-                  </li>
-                  <li className={styles.nav_li}>
-                    <Link className={styles.nav_link} to="/about">
-                      About
-                    </Link>
-                  </li>
-                  <li className={styles.nav_li}>
-                    <Link className={styles.nav_link} to="/contact">
-                      Contact
-                    </Link>
-                  </li>
-                  <li className={styles.nav_li}>
-                    <Link className={styles.nav_link} to="/faq">
-                      FaQ's
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
-            </Nav>
-              <li className={styles.nav_li}>
-                <Link className={styles.nav_link} to="/login">
-                  Login{" "}
-                </Link>
-              </li>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+
+      <Card>
+        <Navbar {...args} expand="md" className={styles.nav}>
+          <Container>
+            <NavbarToggler onClick={toggle} />
+            <Collapse isOpen={isOpen} navbar>
+              <Nav className="me-auto" navbar>
+                <NavItem>
+                  <NavLink className={styles.navlinks} href="/">
+                    Home
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className={styles.navlinks} href="/about">
+                    About
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className={styles.navlinks} href="/contact">
+                    Contact
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className={styles.navlinks} href="/faq">
+                    FaQ's
+                  </NavLink>
+                </NavItem>
+              </Nav>
+              <List type="inline">
+                <ListInlineItem>
+                  <Button color="warning" outline className="rounded-pill px-4">Register</Button>
+                </ListInlineItem>
+                <ListInlineItem className="mt-2">
+                  <Button
+                    outline
+                    color="warning"
+                    className="rounded-pill px-4"
+                  >
+                    Login
+                  </Button>
+                </ListInlineItem>
+              </List>
+            </Collapse>
+          </Container>
+        </Navbar>
+      </Card>
     </>
   );
 };

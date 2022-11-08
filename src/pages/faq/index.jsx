@@ -22,7 +22,7 @@ const FaQ = () => {
           Frequently asked questions
         </CardTitle>
         <Breadcrumb>
-          <BreadcrumbItem href="#" tag="a">
+          <BreadcrumbItem className="text-danger" href="#" tag="a">
             Home
           </BreadcrumbItem>
           <BreadcrumbItem href="#" tag="a" active>
@@ -32,14 +32,16 @@ const FaQ = () => {
       </Card>
       <Container>
         <Card body className={styles.cardBody}>
-          <UncontrolledAccordion flush defaultOpen="1">
-            <AccordionItem>
-              <AccordionHeader targetId="1">
-                <Badge color="primary" pill className="mx-3">
+          <UncontrolledAccordion flush defaultOpen="1" className={styles.items}>
+            <AccordionItem >
+                <Card>
+              <AccordionHeader targetId="1" variant="danger" color="danger">
+                <Badge color="danger" pill className="mx-3">
                   1
                 </Badge>
                 Does the website accept payment in any way?
               </AccordionHeader>
+                </Card>
               <AccordionBody accordionId="1" className="text-secondary fw-bold">
                 No, We dont accept any payment from users as of now, and if
                 someone pretends to be us and asks for payment, we are not
@@ -49,7 +51,7 @@ const FaQ = () => {
             <AccordionItem>
               <AccordionHeader targetId="2">
                 {" "}
-                <Badge color="primary" pill className="mx-3">
+                <Badge color="danger" pill className="mx-3">
                   2
                 </Badge>{" "}
                 Do you sell anything on the website?
@@ -62,7 +64,7 @@ const FaQ = () => {
             <AccordionItem>
               <AccordionHeader targetId="3">
                 {" "}
-                <Badge color="primary" pill className="mx-3">
+                <Badge color="danger" pill className="mx-3">
                   3
                 </Badge>{" "}
                 How can I start earning?
@@ -78,7 +80,7 @@ const FaQ = () => {
             <AccordionItem>
               <AccordionHeader targetId="6">
                 {" "}
-                <Badge color="primary" pill className="mx-3">
+                <Badge color="danger" pill className="mx-3">
                   6
                 </Badge>{" "}
                 How can I activate/deactivate any withdrawal method?
@@ -91,7 +93,7 @@ const FaQ = () => {
             <AccordionItem>
               <AccordionHeader targetId="9">
                 {" "}
-                <Badge color="primary" pill className="mx-3">
+                <Badge color="danger" pill className="mx-3">
                   9
                 </Badge>{" "}
                 Where can I see the details about my earnings?
