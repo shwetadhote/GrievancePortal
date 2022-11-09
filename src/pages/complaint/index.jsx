@@ -1,8 +1,16 @@
 import React from 'react'
+import { Container,Card,CardTitle } from 'reactstrap'
 
 const Complaint = () => {
   return (
-    <div>Complaint</div>
+    <>
+   <Container>
+       <Card>
+        <CardTitle tag="h3">
+            Add Complaint
+        </CardTitle>
+        </Card> 
+    </Container></>
   )
 }
 
