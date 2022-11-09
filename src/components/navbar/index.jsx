@@ -1,17 +1,10 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
 import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaWhatsapp,
-  FaYoutube,
-} from "react-icons/fa";
-import {
   Collapse,
   Navbar,
   NavbarToggler,
-  Nav,
+  Nav,Col,
   NavItem,
   NavbarBrand,
   NavbarText,
@@ -19,12 +12,16 @@ import {
   Container,
   List,
   ListInlineItem,
-  CardLink,
-  Card,
+  Card,Row,
   Button,
   // Dropdown
 } from "reactstrap";
 import logo from "../../assets/Images/logo.png";
+import { FaHome } from "react-icons/fa";
+import { BiInfoCircle } from "react-icons/bi";
+import { MdWifiCalling3 } from "react-icons/md";
+import { BsFillQuestionDiamondFill } from "react-icons/bs";
+
 
 const PaginationNavbar = (args) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,12 +31,19 @@ const PaginationNavbar = (args) => {
     <>
       <Navbar>
         <Container>
-          <NavbarBrand href="#home" className="mx-5">
-            <img alt="" src={logo} width="70" height="90" />{" "}
+          <Row>
+          <Col sm={6}> <NavbarBrand href="#home" className="mx-5">
+            <img alt="" src={logo} width="100" height="80" />{" "}
             <NavbarText className="mx-3 text-danger fw-bold">
-              Public Grievance Portal
+              Citizen Grievance Portal
             </NavbarText>
-          </NavbarBrand>
+          </NavbarBrand></Col>
+          <Col sm={6}>
+            <Button className={styles.complaintbtn}>
+              <NavLink href="/complaint">Add Complaint</NavLink>
+            </Button>
+          </Col>
+          </Row>
         </Container>
       </Navbar>
       {/* eslint-disable-next-line jsx-a11y/no-distracting-elements */}
@@ -56,37 +60,39 @@ const PaginationNavbar = (args) => {
               <Nav className="me-auto" navbar>
                 <NavItem>
                   <NavLink className={styles.navlinks} href="/">
-                    Home
+                   <FaHome size={23} className="mb-1 "/> Home
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink className={styles.navlinks} href="/about">
-                    About
+                   <BiInfoCircle size={23} className="mb-1 "/> About
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink className={styles.navlinks} href="/contact">
-                    Contact
+                  <MdWifiCalling3 size={23} className="mb-1 mx-1 "/>Contact
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink className={styles.navlinks} href="/faq">
-                    FaQ's
+                  <BsFillQuestionDiamondFill size={20} className="mb-1 mx-1"/>FaQ's
                   </NavLink>
                 </NavItem>
               </Nav>
               <List type="inline">
                 <ListInlineItem>
-                  <Button color="warning" outline className="rounded-pill px-4">Register</Button>
+                  <NavLink  href="/signup">
+                  <Button color="warning" outline className="rounded-pill fw-bold px-4">
+                    Register
+                  </Button>
+                  </NavLink>
                 </ListInlineItem>
                 <ListInlineItem className="mt-2">
-                  <Button
-                    outline
-                    color="warning"
-                    className="rounded-pill px-4"
-                  >
-                    Login
+                    <NavLink href="/login">
+                  <Button outline color="warning" className="rounded-pill fw-bold px-4">
+                      Login
                   </Button>
+                    </NavLink>
                 </ListInlineItem>
               </List>
             </Collapse>

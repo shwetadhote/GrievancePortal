@@ -2,3 +2,21 @@
     height: 80%;
     width: 100%;
 }
+.registerCard{
+    text-align: center;
+    background: rgb(247, 174, 185) !important;
+}
+.complaintCard{
+    text-align: center;
+    background: lightskyblue !important;
+}
+.contactCard{
+    text-align: center;
+    background: lightgreen!important;
+
+}
+.cardBody {
+    margin: 5% 0px 10% 0px;
+    box-sizing: border-box;
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.25));
+  }

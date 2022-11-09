@@ -13,12 +13,12 @@ code {
     monospace;
 }
 .accordion-button:not(.collapsed){
-  background-color: darkred !important;
+  background-color: #660131 !important;
   color: white !important;
 }
 .accordion-button:focus{
   z-index: 3;
-    border-color: darkred !important;
+    border-color: #660131 !important;
     outline: 0;
     box-shadow:none !important;
 }

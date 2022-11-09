@@ -2,8 +2,11 @@
     color: rgb(39, 38, 38);
     margin: 2px;
   }
+  .messageHeading{
+    color: #9b004b;
+  }
   .contactusHead {
-    background: rgb(250, 214, 214) !important;
+    background: rgb(248, 227, 227) !important;
     align-items: center;
     border: 0;
     z-index: -1;
@@ -21,7 +24,7 @@
   .icon {
     padding: 10px;
     color: white;
-    background: rgb(185, 2, 2)
+    background: #9b004b;
   }
   .form_input {
     padding: 8px 0px 8px 40px;
@@ -35,9 +38,14 @@
     color: rgb(187, 182, 182);
   }
   .submitbtn{
-    border: none;
-    background: darkred !important;
+    font-weight: 600;
+    border: 1px solid #660131 ;
+    background: #660131 !important;
   }
   .submitbtn:hover{
-    background: rgb(175, 2, 2) !important;
+    font-weight: 600;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    border: 1px solid #660131 !important;
+    color: #660131  !important;
+    background: none !important;
   }
