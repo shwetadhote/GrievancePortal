@@ -1,8 +1,4 @@
 import React from "react";
-import { BsTelephone } from "react-icons/bs";
-import { FiMail } from "react-icons/fi";
-import { FaRegEnvelope } from 'react-icons/fa'
-import { ImMap2 } from "react-icons/im";
 import styles from "./styles.module.css";
 import {
   Label,
@@ -13,143 +9,225 @@ import {
   CardTitle,
   Col,
   Container,
-  FormGroup,
   Input,
   Row,
-  Form,
 } from "reactstrap";
 import Divider from "../../components/divider";
+import * as Yup from "yup";
+import { Formik, Form ,Field,ErrorMessage} from "formik";
+import WebsiteContent from "../../components/websitecontents";
+
+const SignInSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Please enter valid email.")
+    .required("Email is required"),
+  password: Yup.string()
+    .required("Password is required Field.")
+    .min(8, "Password is too short - should be 8 chars minimum.")
+    .max(25, "Password is too long - should be 25 chars minimum."),
+});
 
 const Complaint = () => {
+  const initialValues = {
+    city: "",
+    area: "",
+    complaintType: "",
+    status: "",
+    description: "",
+    panCard: "",
+    images: "",
+  };
   return (
-    <>
-      <Card className={styles.contactusHead} body>
-        <CardTitle className="text-body mb-0" tag="h3">
-          Add Complaint
-        </CardTitle>
-        <Breadcrumb>
-          <BreadcrumbItem href="#" tag="a" className="text-danger">
-            Home
-          </BreadcrumbItem>
-          <BreadcrumbItem href="#" tag="a" active>
-            Complaint
-          </BreadcrumbItem>
-        </Breadcrumb>
-      </Card>
-      <Container>
-        <Container className="px-4 mt-5 fw-bold">
-          <CardTitle tag="h4" className={styles.messageHeading}>
-            Add Your Complaints here
-          </CardTitle>
-          <Divider />
-          <Form>
-          <Row>
-                <Col md={12} className="my-2">
-                    <Label className="text-secondary" htmlFor="complaintType">
-                     Complaint Type
-                    </Label>
-                    <Input
-                      type="complaintType"
+    <Formik
+      initialValues={initialValues}
+      validationSchema={SignInSchema}
+      onSubmit={(values) => {
+        console.log(values);
+      }}
+    >
+      {(formik) => {
+        const { errors, touched } = formik;
+        return (
+          <>
+            <Card className={styles.contactusHead} body>
+              <CardTitle className="text-body mb-0" tag="h3">
+                Add Complaint
+              </CardTitle>
+              <Breadcrumb>
+                <BreadcrumbItem href="#" tag="a" className="text-danger">
+                  Home
+                </BreadcrumbItem>
+                <BreadcrumbItem href="#" tag="a" active>
+                  Complaint
+                </BreadcrumbItem>
+              </Breadcrumb>
+            </Card>
+            <Container>
+              <Container className="px-4 mt-5 fw-bold">
+                <CardTitle tag="h4" className={styles.messageHeading}>
+                  Add Your Complaints here
+                </CardTitle>
+                <Divider />
+                <Form>
+                  <Row>
+                    <Col md={12} className="my-2">
+                      <Label className="text-secondary" htmlFor="complaintType">
+                        Complaint Type
+                      </Label>
+                      <Field
+                      type="text"
                       name="complaintType"
                       id="complaintType"
-                      placeholder="Enter Your Complaints"
-                      className={`${styles.form_input}`}
+                      placeholder="Enter your complaint Type"
+                      className={`${
+                        errors.complaintType && touched.complaintType ? "input-error" : null
+                      } ${styles.form_input}`}
                     />
-                </Col>
-              </Row>
-          <Row>
-                <Col md={6} className="my-2">
-                    <Label htmlFor="area" className="text-secondary">
-                      Area
-                    </Label>
-                    <Input
+                    <ErrorMessage
+                      name="complaintType"
+                      component="span"
+                      className="error text-danger"
+                    />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col md={6} className="my-2">
+                      <Label htmlFor="area" className="text-secondary">
+                        Area
+                      </Label>
+                      <Field
                       type="text"
                       name="area"
                       id="area"
-                      placeholder="Enter Your Area"
-                      className={`${styles.form_input}`}
+                      placeholder="Enter your area"
+                      className={`${
+                        errors.area && touched.area ? "input-error" : null
+                      } ${styles.form_input}`}
                     />
-                </Col>
-                <Col md={6} className="my-2">
-                    <Label htmlFor="city" className="text-secondary">
-                      City
-                    </Label>
-                    <Input
+                    <ErrorMessage
+                      name="area"
+                      component="span"
+                      className="error text-danger"
+                    />
+                    </Col>
+                    <Col md={6} className="my-2">
+                      <Label htmlFor="city" className="text-secondary">
+                        City
+                      </Label>
+                      <Field
                       type="text"
                       name="city"
                       id="city"
-                      placeholder="Enter Your City"
-                      className={`${styles.form_input}`}
+                      placeholder="Enter your city"
+                      className={`${
+                        errors.city && touched.city ? "input-error" : null
+                      } ${styles.form_input}`}
                     />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={12} className="my-2">
-                <Label htmlFor="images" className="text-secondary">
-                Upload Images
-                    </Label>
-                    <Input
+                    <ErrorMessage
+                      name="city"
+                      component="span"
+                      className="error text-danger"
+                    />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col md={12} className="my-2">
+                      <Label htmlFor="images" className="text-secondary">
+                        Upload Images
+                      </Label>
+                      <Field
                       type="file"
                       name="images"
                       id="images"
-                      placeholder="Upload Images"
-                      className={`${styles.form_input}`}
+                      placeholder="upload images"
+                      className={`${
+                        errors.images && touched.images ? "input-error" : null
+                      } ${styles.form_input}`}
                     />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={12} className="my-2">
-                <Label htmlFor="panCard image" className="text-secondary">
-                     Pancard Image
-                    </Label>
-                    <Input
+                    <ErrorMessage
+                      name="images"
+                      component="span"
+                      className="error text-danger"
+                    />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col md={12} className="my-2">
+                      <Label htmlFor="panCard image" className="text-secondary">
+                        Pancard Image
+                      </Label>
+                      <Field
                       type="file"
-                      name="panCard image"
-                      id="panCard image"
-                      placeholder="Pancard Image"
-                      className={`${styles.form_input}`}
+                      name="panCard"
+                      id="panCard"
+                      placeholder="Enter your panCard Image"
+                      className={`${
+                        errors.panCard && touched.panCard ? "input-error" : null
+                      } ${styles.form_input}`}
                     />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={12} className="my-2">
-                <Label htmlFor="description" className="text-secondary">
-                     Description
-                    </Label>
-                    <Input
+                    <ErrorMessage
+                      name="panCard"
+                      component="span"
+                      className="error text-danger"
+                    />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col md={12} className="my-2">
+                      <Label htmlFor="description" className="text-secondary">
+                        Description
+                      </Label>
+                      <Field
                       type="textarea"
                       name="description"
                       id="description"
-                      placeholder="Add short description of your problem"
-                      className={`${styles.form_input}`}
+                      placeholder="Add short description of your problem "
+                      className={`${
+                        errors.description && touched.description ? "input-error" : null
+                      } ${styles.form_input}`}
                     />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={12} className="my-2">
-                <Label htmlFor="status" className="text-secondary">
-                     Status
-                    </Label>
-                    <Input
+                    <ErrorMessage
+                      name="description"
+                      component="span"
+                      className="error text-danger"
+                    />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col md={12} className="my-2">
+                      <Label htmlFor="status" className="text-secondary">
+                        Status
+                      </Label>
+                      <Field
                       type="text"
                       name="status"
                       id="status"
-                      placeholder="Status"
-                      className={`${styles.form_input}`}
+                      placeholder="Enter status"
+                      className={`${
+                        errors.status && touched.status ? "input-error" : null
+                      } ${styles.form_input}`}
                     />
-                </Col>
-              </Row>
-            <Button
-              type="submit"
-              className={`rounded-pill px-5 my-5 ${styles.submitbtn}`}
-            >
-              Submit 
-            </Button>
-          </Form>
-        </Container>
-      </Container>
-      </>
-  )
-}
+                    <ErrorMessage
+                      name="status"
+                      component="span"
+                      className="error text-danger"
+                    />
+                    </Col>
+                  </Row>
+                  <Button
+                    type="submit"
+                    className={`rounded-pill px-5 my-5 ${styles.submitbtn}`}
+                  >
+                    Submit
+                  </Button>
+                </Form>
+              </Container>
+            </Container>
+          </>
+        );
+      }}
+    </Formik>
+  );
+};
 
-export default Complaint
+export default Complaint;

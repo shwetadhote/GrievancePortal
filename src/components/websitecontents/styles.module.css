@@ -1,0 +1,26 @@
+.cardImg{
+    height: 80%;
+    width: 100%;
+}
+.registerCard{
+    align-items: center !important;
+    text-align: center !important;
+    background: rgb(247, 174, 185) !important;
+}
+.complaintCard{
+    text-align: center;
+    background: lightskyblue !important;
+}
+.contactCard{
+    text-align: center;
+    background: lightgreen!important;
+
+}
+.cardbutton{
+    padding: 6px 30px !important;
+    margin-top: 15px;
+    background: rgb(16, 16, 87) !important;
+}
+.cardlinks{
+    text-decoration: none;
+}
