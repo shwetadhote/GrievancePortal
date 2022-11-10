@@ -15,16 +15,22 @@ import {
 import Divider from "../../components/divider";
 import * as Yup from "yup";
 import { Formik, Form ,Field,ErrorMessage} from "formik";
-import WebsiteContent from "../../components/websitecontents";
 
 const SignInSchema = Yup.object().shape({
-  email: Yup.string()
-    .email("Please enter valid email.")
-    .required("Email is required"),
-  password: Yup.string()
-    .required("Password is required Field.")
-    .min(8, "Password is too short - should be 8 chars minimum.")
-    .max(25, "Password is too long - should be 25 chars minimum."),
+  area: Yup.string()
+    .required("Area is required"),
+  city: Yup.string()
+    .required("City is required Field."),
+  complaintType: Yup.string()
+    .required("complaintType is required"),
+    status: Yup.string()
+    .required("status is required"),
+    description: Yup.string()
+    .required("description is required"),
+    panCard: Yup.string()
+    .required("panCard is required"),
+    images: Yup.string()
+    .required("images is required"),
 });
 
 const Complaint = () => {
@@ -63,7 +69,7 @@ const Complaint = () => {
               </Breadcrumb>
             </Card>
             <Container>
-              <Container className="px-4 mt-5 fw-bold">
+              <Container className="px-4 mt-5">
                 <CardTitle tag="h4" className={styles.messageHeading}>
                   Add Your Complaints here
                 </CardTitle>
@@ -135,7 +141,8 @@ const Complaint = () => {
                       <Label htmlFor="images" className="text-secondary">
                         Upload Images
                       </Label>
-                      <Field
+                      <Input
+                      tag={Field}
                       type="file"
                       name="images"
                       id="images"
@@ -156,7 +163,8 @@ const Complaint = () => {
                       <Label htmlFor="panCard image" className="text-secondary">
                         Pancard Image
                       </Label>
-                      <Field
+                      <Input
+                      tag={Field}
                       type="file"
                       name="panCard"
                       id="panCard"

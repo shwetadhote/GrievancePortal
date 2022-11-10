@@ -7,7 +7,6 @@ import {
   CardLink,
   Card,
   CardTitle,
-  ListInlineItem,
   ListGroupItem,
   CardText,
   Button,
@@ -31,6 +30,7 @@ const Footer = () => {
               <List>
                 <ListGroupItem>
                   <CardLink
+                  hre="/"
                     className={styles.Card_link}
                   >
                     Home
@@ -38,6 +38,7 @@ const Footer = () => {
                 </ListGroupItem>
                 <ListGroupItem>
                   <CardLink
+                  hre="/about"
                     className={styles.Card_link}
                   >
                     About
@@ -45,6 +46,7 @@ const Footer = () => {
                 </ListGroupItem>
                 <ListGroupItem>
                   <CardLink
+                  hre="/contact"
                     className={styles.Card_link}
                   >
                     Contact Us
@@ -52,33 +54,13 @@ const Footer = () => {
                 </ListGroupItem>
                 <ListGroupItem>
                   <CardLink
+                  hre="/faq"
                     className={styles.Card_link}
                   >
                     FAQ
                   </CardLink>
                 </ListGroupItem>
               </List>
-              <CardTitle tag="h5">Newsletter</CardTitle>
-                <InputGroup className="mt-3">
-              <Row>
-                  <Col sm="8">
-                    <Input
-                      placeholder="Enter Your Email Here..."
-                      className={`rounded-pill fw-bold ${styles.newsletter_input}`}
-                    />
-                  </Col>
-                  <Col sm="4">
-                    <Button
-                      color="warning"
-                      className={`rounded-pill fw-bold ${styles.subscribe_btn}`}
-                    >
-                      Subscribe
-                    </Button>
-                  </Col>
-              </Row>
-                </InputGroup>
-            </Col>
-            <Col sm="4" className="mt-3">
               <CardTitle tag="h5">Connect</CardTitle>
               <Row>
                 <Col>
@@ -96,12 +78,14 @@ const Footer = () => {
                     Sign Up
                   </Button>
                 </Col>
-              </Row>
-           
+              </Row> <CardText></CardText>
+            </Col>
+            <Col sm="4" className="mt-3">
               <CardTitle tag="h5" className="mt-3">Contact Us</CardTitle>
               <CardText>
                 <Row>
                   <Col>
+                  Governments citizen grievance portal<br/>
                     Indore, Madhya Pradesh - 452010
                     <br />
                     <CardLink
@@ -109,7 +93,14 @@ const Footer = () => {
                       target="__blank"
                       className={styles.phone_no}
                     >
-                      0731-4036
+                      0731-403688
+                    </CardLink><br/>
+                    <CardLink
+                      href="tel:0731-9036"
+                      target="__blank"
+                      className={styles.phone_no}
+                    >
+                      0731-4037800
                     </CardLink>
                   </Col>
                 </Row>

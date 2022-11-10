@@ -10,7 +10,7 @@ const WebsiteContent = () => {
   return (
     <>
      <Container>
-      <Card className="border-0 my-5" body>
+      <Card className="border-0 mb-5" body>
         <Row>
           <Col sm={4}>
             {" "}
