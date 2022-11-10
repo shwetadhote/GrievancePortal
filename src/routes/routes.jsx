@@ -5,6 +5,7 @@ import SignUp from '../pages/Auth/signup';
 import Complaint from '../pages/complaint';
 import Contact from '../pages/contact';
 import FaQ from '../pages/faq';
+import ForgotPassword from '../pages/forgot/inde';
 import Home from '../pages/home';
 
 const Routes = [
@@ -35,6 +36,10 @@ const Routes = [
     {
         path: "/complaint",
         element: <Complaint/>
+    },
+    {
+        path: "/forgot",
+        element: <ForgotPassword/>
     },
 ]
 

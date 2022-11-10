@@ -39,7 +39,7 @@ const PaginationNavbar = (args) => {
             </NavbarText>
           </NavbarBrand></Col>
           <Col sm={6}>
-            <Button className={styles.complaintbtn}>
+            <Button className={`rounded-pill ${styles.complaintbtn}`}>
               <NavLink href="/complaint">Add Complaint</NavLink>
             </Button>
           </Col>
